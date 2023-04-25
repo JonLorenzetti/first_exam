@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1>Add a New Sighting!</h1>
+
+        <form action="/sightings/create" method="POST">
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+            {% if messages %}                            <!-- check if there are any messages -->
+                {% for message in messages %}            <!-- loop through the messages -->
+                    <p class="alert alert-danger">{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" name="location" class="form-control" id="location" placeholder="Location">
+            </div>
+            <div class="form-group">
+                <label for="happenings">What Happened:</label>
+                <input type="text" name="happenings" class="form-control" id="happenings" placeholder="What Happened?">
+            </div>
+            <div class="form-outline" style="width: 22rem;">
+                <input step="1" value="0" type="number" id="number" name="number" class="form-control" />
+                <label class="form-label" for="number">Number input</label>
+            </div>
+            <div class="form-group">
+                <label for="date">Date of Sighting</label>
+                <input type="date" name="date" id="date">
+            </div>
+                <input href="/sightings" type="submit" value="Report">
+            </div>
+        </form>
+    </div>
+{% endblock %}

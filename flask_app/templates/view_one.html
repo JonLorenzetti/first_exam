@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}  
+<div class="card" style="width: 18rem;">
+    <h1>Sasquatch Websighting</h1>
+        <div class="card-body">
+            <h5 class="card-title">{{ sighting.location }} on {{ sighting.date }}</h5>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">What Happened:</h5>
+            <p class="card-text">{{ sighting.happenings }}</p>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Number of Sasquatches seen</h5>
+            <p class="card-text">{{ sighting.number }}</p>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Reported By:</h5>
+            <p class="card-text">{{ sighting.creator.first_name }}</p>
+        </div>
+        <div class="card-body">
+            <a href="/sightings" class="card-link">Back to Sightings</a>
+            <a href="/logout" class="card-link">Logout</a>
+        </div>
+</div>
+{% endblock %}
